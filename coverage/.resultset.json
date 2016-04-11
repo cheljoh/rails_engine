@@ -1,0 +1,38 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/chelseajohnson/Documents/turing/3module/rails_engine/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/chelseajohnson/Documents/turing/3module/rails_engine/app/controllers/api/v1/merchants_controller.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/chelseajohnson/Documents/turing/3module/rails_engine/app/controllers/api/api_controller.rb": [
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/chelseajohnson/Documents/turing/3module/rails_engine/app/controllers/application_controller.rb": [
+        1,
+        null,
+        null,
+        1,
+        null
+      ]
+    },
+    "timestamp": 1460404421
+  }
+}
