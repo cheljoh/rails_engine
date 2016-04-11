@@ -5,12 +5,11 @@
         1,
         null
       ],
-      "/Users/chelseajohnson/Documents/turing/3module/rails_engine/app/controllers/api/v1/merchants_controller.rb": [
+      "/Users/chelseajohnson/Documents/turing/3module/rails_engine/app/controllers/api/v1/invoices_controller.rb": [
         1,
         1,
         1,
         1,
-        null,
         1,
         1,
         null,
@@ -31,8 +30,28 @@
         null,
         1,
         null
+      ],
+      "/Users/chelseajohnson/Documents/turing/3module/rails_engine/app/models/invoice.rb": [
+        1,
+        null
+      ],
+      "/Users/chelseajohnson/Documents/turing/3module/rails_engine/app/controllers/api/v1/merchants_controller.rb": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/chelseajohnson/Documents/turing/3module/rails_engine/app/models/merchant.rb": [
+        0,
+        0
       ]
     },
-    "timestamp": 1460404421
+    "timestamp": 1460412167
   }
 }

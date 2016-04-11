@@ -1,9 +1,10 @@
 module Api
   module V1
-    class MerchantsController < ApiController
+    class InvoicesController < ApiController
       respond_to :json
+      
       def index
-        respond_with Merchant.all
+        respond_with Invoice.all
       end
     end
   end
