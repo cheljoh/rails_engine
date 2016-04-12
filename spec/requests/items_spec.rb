@@ -6,4 +6,10 @@ RSpec.describe "Items Spec", :type => :request do
     get "/api/v1/items.json"
     expect(response.content_type).to eq("application/json")
   end
+
+  it "returns a single item" do
+    item = Item.create(name: "tool", description: "really neat", unit_price: 12345)
+    get "/api/v1/items/#{item.id}.json"
+    expect(response.content_type).to eq("application/json")
+  end
 end

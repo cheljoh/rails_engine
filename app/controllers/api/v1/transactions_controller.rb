@@ -5,6 +5,10 @@ module Api
       def index
         respond_with Transaction.all
       end
+
+      def show
+        respond_with Transaction.find(params[:id])
+      end
     end
   end
 end
