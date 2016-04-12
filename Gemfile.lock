@@ -30,6 +30,9 @@ GEM
       activemodel (= 4.2.5.1)
       activesupport (= 4.2.5.1)
       arel (~> 6.0)
+    activerecord-postgresql-citext (0.1.0)
+      activerecord (>= 4.0.0, < 5.0.0)
+      pg
     activesupport (4.2.5.1)
       i18n (~> 0.7)
       json (~> 1.7, >= 1.7.7)
@@ -202,6 +205,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-postgresql-citext
   capybara
   coffee-rails (~> 4.1.0)
   database_cleaner
