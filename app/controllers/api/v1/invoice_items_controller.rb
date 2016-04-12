@@ -4,7 +4,11 @@ module Api
       respond_to :json
 
       def index
-        respond_with InvoiceItem.all
+        if invoice_items_params
+          respond_with InvoiceItem.where(invoice_items_params)
+        else
+          respond_with InvoiceItem.all
+        end
       end
 
       def show

@@ -13,9 +13,16 @@ RSpec.describe "Customers Spec", :type => :request do
     expect(response.content_type).to eq("application/json")
   end
 
-  it "finds a cusomter by name case insensitive" do
+  it "finds a customer by name case insensitive" do
     customer = Customer.create(first_name: "helga", last_name: "johnson")
     get "/api/v1/customers/find?first_name=#{customer.first_name.upcase}"
+    expect(response.content_type).to eq("application/json")
+  end
+  
+  it "finds all customers" do
+    customer = Customer.create(first_name: "helga", last_name: "johnson")
+    customer = Customer.create(first_name: "helga", last_name: "neato")
+    get "/api/v1/customers/find_all?first_name=#{customer.first_name.upcase}"
     expect(response.content_type).to eq("application/json")
   end
 end

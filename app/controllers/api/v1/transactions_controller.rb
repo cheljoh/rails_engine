@@ -3,7 +3,11 @@ module Api
     class TransactionsController < ApiController
       respond_to :json
       def index
-        respond_with Transaction.all
+        if transaction_params
+          respond_with Transaction.where(transaction_params)
+        else
+          respond_with Transaction.all
+        end
       end
 
       def show

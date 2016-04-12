@@ -18,4 +18,11 @@ RSpec.describe "Items Spec", :type => :request do
     get "/api/v1/customers/find?name=#{item.name.upcase}"
     expect(response.content_type).to eq("application/json")
   end
+
+  it "finds all items" do
+    item = Item.create(name: "tool", description: "really neat", unit_price: 12345)
+    item = Item.create(name: "sock", description: "really neat", unit_price: 12342)
+    get "/api/v1/customers/find_all?description=#{item.description.upcase}"
+    expect(response.content_type).to eq("application/json")
+  end
 end

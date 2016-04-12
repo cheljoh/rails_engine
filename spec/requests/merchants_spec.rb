@@ -24,4 +24,11 @@ RSpec.describe "Merchants Spec", :type => :request do
     get "/api/v1/merchants/find?created_at=#{merchant.created_at}"
     expect(response.content_type).to eq("application/json")
   end
+
+  it "can find all merchants" do
+    merchant = Merchant.create(name: "Cool Things")
+    merchant = Merchant.create(name: "Cool Things")
+    get "/api/v1/merchants/find_all?name=#{merchant.name}"
+    expect(response.content_type).to eq("application/json")
+  end
 end
