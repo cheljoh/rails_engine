@@ -1,21 +1,23 @@
 require "rails_helper"
 
 RSpec.describe "Customers Spec", :type => :request do
+  include SpecHelpers
 
   it "returns all customers in the index" do
-    customer1 = Customer.create(first_name: "helga", last_name: "johnson")
-    customer2 = Customer.create(first_name: "helga", last_name: "neato")
+    make_customers
 
     get "/api/v1/customers.json"
 
     expect(response.content_type).to eq("application/json")
     expect(response).to be_success
     customers = JSON.parse(response.body)
-    expect(customers.count).to eq(2)
+    expect(customers.count).to eq(4)
   end
 
   it "returns a single customer" do
-    customer = Customer.create(first_name: "helga", last_name: "johnson")
+    make_customers
+
+    customer = Customer.last
 
     get "/api/v1/customers/#{customer.id}.json"
 
@@ -27,9 +29,11 @@ RSpec.describe "Customers Spec", :type => :request do
   end
 
   it "finds a customer by name case insensitive" do
-    customer = Customer.create(first_name: "helga", last_name: "johnson")
+    make_customers
 
-    get "/api/v1/customers/find?first_name=#{customer.first_name.upcase}"
+    last_customer = Customer.last
+
+    get "/api/v1/customers/find?first_name=#{last_customer.first_name.upcase}"
 
     customer = JSON.parse(response.body)
 
@@ -39,11 +43,11 @@ RSpec.describe "Customers Spec", :type => :request do
   end
 
   it "finds all customers given a parameter" do
-    customer1 = Customer.create(first_name: "helga", last_name: "johnson")
-    customer2 = Customer.create(first_name: "helga", last_name: "neato")
-    customer3 = Customer.create(first_name: "olga", last_name: "neato")
+    make_customers
 
-    get "/api/v1/customers/find_all?first_name=#{customer1.first_name.upcase}"
+    customer = Customer.last
+
+    get "/api/v1/customers/find_all?first_name=#{customer.first_name.upcase}"
 
     expect(response.content_type).to eq("application/json")
     expect(response).to be_success

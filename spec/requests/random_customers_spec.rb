@@ -1,10 +1,10 @@
 require "rails_helper"
 
 RSpec.describe "Random Customers Spec", :type => :request do
+  include SpecHelpers
 
   it "finds a random customer" do
-    customer = Customer.create(first_name: "helga", last_name: "johnson")
-    customer = Customer.create(first_name: "helga", last_name: "neato")
+    make_customers
     get "/api/v1/customers/random"
     customer = JSON.parse(response.body).last
 
