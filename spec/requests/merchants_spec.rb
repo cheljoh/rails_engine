@@ -13,9 +13,15 @@ RSpec.describe "Merchants Spec", :type => :request do
     expect(response.content_type).to eq("application/json")
   end
 
-  it "can find a merchant" do
+  it "can find a merchant by name case insensitive" do
     merchant = Merchant.create(name: "Cool Things")
-    get "/api/v1/merchants/find?id=#{merchant.id}"
+    get "/api/v1/merchants/find?name=#{merchant.name.upcase}"
+    expect(response.content_type).to eq("application/json")
+  end
+
+  it "can find a merchant by created_at case insensitive" do
+    merchant = Merchant.create(name: "Cool Things")
+    get "/api/v1/merchants/find?created_at=#{merchant.created_at}"
     expect(response.content_type).to eq("application/json")
   end
 end

@@ -12,4 +12,10 @@ RSpec.describe "Items Spec", :type => :request do
     get "/api/v1/items/#{item.id}.json"
     expect(response.content_type).to eq("application/json")
   end
+
+  it "finds a item by name case insensitive" do
+    item = Item.create(name: "tool", description: "really neat", unit_price: 12345)
+    get "/api/v1/customers/find?name=#{item.name.upcase}"
+    expect(response.content_type).to eq("application/json")
+  end
 end
