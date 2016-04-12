@@ -4,14 +4,15 @@ module Api
       respond_to :json
 
       def index
-        if item_params
-          respond_with Item.where(item_params)
-        else
+        if item_params.empty?
           respond_with Item.all
+        else
+          respond_with Item.where(item_params)
         end
       end
 
       def show
+
         respond_with Item.find_by(item_params)
       end
 

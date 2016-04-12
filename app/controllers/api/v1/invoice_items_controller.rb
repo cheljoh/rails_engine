@@ -4,10 +4,10 @@ module Api
       respond_to :json
 
       def index
-        if invoice_items_params
-          respond_with InvoiceItem.where(invoice_items_params)
-        else
+        if invoice_items_params.empty?
           respond_with InvoiceItem.all
+        else
+          respond_with InvoiceItem.where(invoice_items_params)
         end
       end
 

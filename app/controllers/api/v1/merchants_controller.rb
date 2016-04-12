@@ -4,10 +4,10 @@ module Api
       respond_to :json
 
       def index
-        if merchant_params
-          respond_with Merchant.where(merchant_params)
-        else
+        if merchant_params.empty?
           respond_with Merchant.all
+        else
+          respond_with Merchant.where(merchant_params)
         end
       end
 
