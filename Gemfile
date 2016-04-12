@@ -18,7 +18,6 @@ gem 'responders', '~> 2.0'
 group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
-  gem 'vcr'
   gem 'capybara'
   gem 'launchy'
   gem 'database_cleaner'

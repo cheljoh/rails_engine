@@ -1,44 +1,45 @@
-require 'csv' #could also be in application.rb
+require 'csv'
 
-namespace :import do #prolly want to import all of them at once
+namespace :import do
 
-  desc "Import merchants from csv"
-  task merchants: :environment do #envt gives you access to users
+  desc "Import data from csv"
+  task data: :environment do
     CSV.foreach("data/merchants.csv", headers: true) do |row|
       Merchant.create(row.to_h)
     end
-  end
 
-  desc "Import invoices from csv"
-  task invoices: :environment do
-    CSV.foreach("data/invoices.csv", headers: true) do |row|
-      Invoice.create(row.to_h)
-    end
-  end
-
-  desc "Import customers from csv"
-  task customers: :environment do
     CSV.foreach("data/customers.csv", headers: true) do |row|
       Customer.create(row.to_h)
     end
-  end
 
-  desc "Import items from csv"
-  task items: :environment do
+    CSV.foreach("data/invoices.csv", headers: true) do |row|
+      Invoice.create(row.to_h)
+    end
+
     CSV.foreach("data/items.csv", headers: true) do |row|
-      Item.create(row.to_h)
+      formatted_price = row["unit_price"].to_i/100.0
+      Item.create(
+        id:              row["id"],
+        name:            row["name"],
+        description:     row["description"],
+        unit_price:      formatted_price,
+        merchant_id:     row["merchant_id"],
+        created_at:      row["created_at"],
+        updated_at:      row["updated_at"])
     end
-  end
 
-  desc "Import invoice items from csv"
-  task invoice_items: :environment do
     CSV.foreach("data/invoice_items.csv", headers: true) do |row|
-      InvoiceItem.create(row.to_h)
+      formatted_price = row["unit_price"].to_i/100.0
+      InvoiceItem.create(
+        id:              row["id"],
+        item_id:         row["item_id"],
+        invoice_id:      row["invoice_id"],
+        quantity:        row["quantity"],
+        unit_price:      formatted_price,
+        created_at:      row["created_at"],
+        updated_at:      row["updated_at"])
     end
-  end
 
-  desc "Import transactions from csv"
-  task transactions: :environment do
     CSV.foreach("data/transactions.csv", headers: true) do |row|
       Transaction.create(
         id:                  row["id"],
