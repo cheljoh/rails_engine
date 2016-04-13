@@ -5,7 +5,6 @@ RSpec.describe "Single Merchant Intell Spec", :type => :request do
   include SpecHelpers
 
   it "returns revenue for a merchants across all transactions" do
-    pending
     make_transactions
 
     merchant = Merchant.first #has three transactions
@@ -14,12 +13,11 @@ RSpec.describe "Single Merchant Intell Spec", :type => :request do
 
     expect(response.content_type).to eq("application/json")
 
-    items = JSON.parse(response.body)
+    revenue = JSON.parse(response.body)
 
     expect(response.content_type).to eq("application/json")
     expect(response).to be_success
-    # expect(items.count).to eq(3)
-    # expect(items.last["id"]).to eq(item.id)
+    expect(revenue).to eq({"revenue"=>"370.35"})
   end
 end
 

@@ -41,10 +41,56 @@
         1,
         1,
         1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
         null
       ],
       "/Users/chelseajohnson/Documents/turing/3module/rails_engine/app/models/transaction.rb": [
         1,
+        1,
+        null
+      ],
+      "/Users/chelseajohnson/Documents/turing/3module/rails_engine/app/controllers/api/v1/merchants/revenues_controller.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/chelseajohnson/Documents/turing/3module/rails_engine/app/controllers/api/api_controller.rb": [
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/chelseajohnson/Documents/turing/3module/rails_engine/app/controllers/application_controller.rb": [
+        1,
+        null,
+        null,
         1,
         null
       ],
@@ -73,20 +119,6 @@
         null,
         null,
         null,
-        null
-      ],
-      "/Users/chelseajohnson/Documents/turing/3module/rails_engine/app/controllers/api/api_controller.rb": [
-        1,
-        1,
-        1,
-        null,
-        null
-      ],
-      "/Users/chelseajohnson/Documents/turing/3module/rails_engine/app/controllers/application_controller.rb": [
-        1,
-        null,
-        null,
-        1,
         null
       ],
       "/Users/chelseajohnson/Documents/turing/3module/rails_engine/app/controllers/api/v1/invoice_items_controller.rb": [
@@ -517,6 +549,6 @@
         null
       ]
     },
-    "timestamp": 1460561152
+    "timestamp": 1460565284
   }
 }
