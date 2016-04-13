@@ -34,12 +34,13 @@ module SpecHelpers
 
   def make_invoices
     customer1 = Customer.create(first_name: "Hello", last_name: "Julia")
+    customer2 = Customer.create(first_name: "Hello", last_name: "Julia")
     merchant1 = Merchant.create(name: "Cool Things")
     merchant2 = Merchant.create(name: "Cool Things")
     Invoice.create(customer_id: customer1.id, merchant_id: merchant2.id, status: "shipped")
     Invoice.create(customer_id: customer1.id, merchant_id: merchant1.id, status: "shipped")
     Invoice.create(customer_id: customer1.id, merchant_id: merchant1.id, status: "shipped")
-    Invoice.create(customer_id: customer1.id, merchant_id: merchant1.id, status: "shipped")
+    Invoice.create(customer_id: customer2.id, merchant_id: merchant1.id, status: "shipped")
   end
 
   def make_items
@@ -69,11 +70,9 @@ module SpecHelpers
     invoice2 = Invoice.create(customer_id: customer2.id, merchant_id: merchant2.id, status: "shipped")
     Transaction.create(invoice_id: invoice2.id, credit_card_number: "4654405418249632", result: "success")
 
-    customer3 = Customer.create(first_name: "Yikes", last_name: "Johnson")
     merchant3 = Merchant.create(name: "Cool Things")
     Transaction.create(invoice_id: invoice1.id, credit_card_number: "4654405418249635", result: "success")
 
-    customer4 = Customer.create(first_name: "Susan", last_name: "Jules")
     merchant4 = Merchant.create(name: "Cool Things")
     Transaction.create(invoice_id: invoice1.id, credit_card_number: "4654405418249635", result: "success")
   end
