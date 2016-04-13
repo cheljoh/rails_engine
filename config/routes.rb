@@ -4,12 +4,12 @@ Rails.application.routes.draw do
       get "/merchants/find", to: "merchants#show"
       get "/merchants/random", to: "random_merchants#show"
       get "/merchants/find_all", to: "merchants#index"
-      get "/merchants/find_all", to: "merchants#index"
       resources :merchants, only: [:index, :show] do
         resources :items, only: [:index]
         resources :invoices, only: [:index]
         get "/revenue", to: "merchants/revenues#show"
         get "/favorite_customer", to: "merchants/favorite_customer#show"
+        get "/customers_with_pending_invoices", to: "merchants/customers_with_pending_invoices#index"
       end
 
       get "/customers/find", to: "customers#show"

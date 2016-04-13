@@ -18,6 +18,14 @@ class Merchant < ActiveRecord::Base
     invoices.joins(:transactions, :invoice_items).where("result = 'success'")
   end
 
+  def customers_with_pending_invoices
+    failed_invoices = invoices.joins(:transactions, :invoice_items).where("result = 'failed'")
+    customer_ids = failed_invoices.pluck(:customer_id).uniq
+    customer_ids.map do |id|
+      Customer.find(id)
+    end
+  end
+
   def favorite_customer
     customer_hash = Hash.new(0)
     customers = customers_with_successful_transactions

@@ -53,9 +53,22 @@ RSpec.describe "Single Merchant Intell Spec", :type => :request do
     expect(response).to be_success
     expect(customer_parsed['id']).to eq(customer.id)
   end
+
+  it "returns customers with pending invoices" do
+    make_transactions_pending
+
+    merchant = Merchant.first
+
+    customer = Customer.first 
+
+    get "/api/v1/merchants/#{merchant.id}/customers_with_pending_invoices"
+
+    expect(response.content_type).to eq("application/json")
+
+    customers = JSON.parse(response.body)
+
+    expect(response.content_type).to eq("application/json")
+    expect(response).to be_success
+    expect(customers.first['id']).to eq(customer.id)
+  end
 end
-
-#failed transactions for pending invoices?
-
-# GET /api/v1/merchants/:id/favorite_customer returns the customer who has conducted the most total number of successful transactions.
-# GET /api/v1/merchants/:id/customers_with_pending_invoices returns a collection of customers which have pending (unpaid) invoices
