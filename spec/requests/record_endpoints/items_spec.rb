@@ -12,7 +12,7 @@ RSpec.describe "Items Spec", :type => :request do
 
     expect(response.content_type).to eq("application/json")
     expect(response).to be_success
-    expect(item_count). to eq(4)
+    expect(item_count).to eq(4)
   end
 
   it "returns a single item" do

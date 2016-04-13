@@ -2,11 +2,12 @@ module Api
   module V1
     class TransactionsController < ApiController
       respond_to :json
+
       def index
-        if transaction_params
-          respond_with Transaction.where(transaction_params)
-        else
+        if transaction_params.empty?
           respond_with Transaction.all
+        else
+          respond_with Transaction.where(transaction_params)
         end
       end
 
