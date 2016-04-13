@@ -25,13 +25,11 @@ module SpecHelpers
 
     customer3 = Customer.create(first_name: "Steph", last_name: "Foo")
     merchant3 = Merchant.create(name: "Toys and Such")
-    item3 = Item.create(name: "yoyo", description: "blue", unit_price: 123.43)
-    InvoiceItem.create(item_id: item3.id, invoice_id: invoice1.id, unit_price: 123.43)
+    InvoiceItem.create(item_id: item1.id, invoice_id: invoice1.id, unit_price: 123.43)
 
     customer4 = Customer.create(first_name: "Kally", last_name: "Wats")
     merchant4 = Merchant.create(name: "Fun Times")
-    item4 = Item.create(name: "sock", description: "nice", unit_price: 125.32)
-    InvoiceItem.create(item_id: item4.id, invoice_id: invoice1.id, unit_price: 125.32)
+    InvoiceItem.create(item_id: item1.id, invoice_id: invoice1.id, unit_price: 125.32)
   end
 
   def make_invoices
