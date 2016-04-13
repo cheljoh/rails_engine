@@ -13,6 +13,6 @@ RSpec.describe "Random Merchants Spec", :type => :request do
 
     expect(response).to be_success
     expect(response.content_type).to eq("application/json")
-    expect(merchant).to have_key("id")
+    expect(merchant).to have_key("name")
   end
 end

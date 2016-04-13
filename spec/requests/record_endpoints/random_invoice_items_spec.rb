@@ -12,6 +12,10 @@ RSpec.describe "Random Invoice Items Spec", :type => :request do
 
     expect(response).to be_success
     expect(response.content_type).to eq("application/json")
-    expect(invoice_item).to have_key("id")
+
+    expect(invoice_item).to have_key("item_id")
+    expect(invoice_item).to have_key("invoice_id")
+    expect(invoice_item).to have_key("quantity")
+    expect(invoice_item).to have_key("unit_price")
   end
 end

@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "Transactions Spec", :type => :request do
+RSpec.describe "Transaction Relationships Spec", :type => :request do
   include SpecHelpers
 
   it "returns associated invoice" do

@@ -11,7 +11,7 @@ RSpec.describe "Invoice Items Spec", :type => :request do
     expect(response.content_type).to eq("application/json")
     expect(response).to be_success
     invoice_item_count = JSON.parse(response.body).count
-    expect(invoice_item_count). to eq(4)
+    expect(invoice_item_count).to eq(4)
   end
 
   it "returns a single invoice item" do

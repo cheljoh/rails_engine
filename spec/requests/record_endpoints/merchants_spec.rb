@@ -14,7 +14,7 @@ RSpec.describe "Merchants Spec", :type => :request do
 
     expect(response.content_type).to eq("application/json")
     expect(response).to be_success
-    expect(merchant_count). to eq(4)
+    expect(merchant_count).to eq(4)
   end
 
   it "returns a single merchant" do

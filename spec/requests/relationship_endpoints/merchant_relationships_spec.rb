@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "Merchants Spec", :type => :request do
+RSpec.describe "Merchant Relationships Spec", :type => :request do
   include SpecHelpers
 
   it "returns all items associated with a merchant" do

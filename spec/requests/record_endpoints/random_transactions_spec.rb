@@ -13,6 +13,8 @@ RSpec.describe "Random Transactions Spec", :type => :request do
 
     expect(response).to be_success
     expect(response.content_type).to eq("application/json")
-    expect(transaction).to have_key("id")
+    expect(transaction).to have_key("invoice_id")
+    expect(transaction).to have_key("credit_card_number")
+    expect(transaction).to have_key("result")
   end
 end

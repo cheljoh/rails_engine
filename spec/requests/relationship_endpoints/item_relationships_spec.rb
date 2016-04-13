@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "Items Spec", :type => :request do
+RSpec.describe "Item Relationships Spec", :type => :request do
   include SpecHelpers
 
   it "returns all associated invoice items" do

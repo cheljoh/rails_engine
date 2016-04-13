@@ -5,7 +5,7 @@ RSpec.describe "Random Invoices Spec", :type => :request do
 
   it "finds a random invoice" do
     make_invoices
-    
+
     get "/api/v1/invoices/random"
     expect(response.content_type).to eq("application/json")
 
@@ -13,6 +13,8 @@ RSpec.describe "Random Invoices Spec", :type => :request do
 
     expect(response).to be_success
     expect(response.content_type).to eq("application/json")
-    expect(invoice).to have_key("id")
+    expect(invoice).to have_key("customer_id")
+    expect(invoice).to have_key("merchant_id")
+    expect(invoice).to have_key("status")
   end
 end

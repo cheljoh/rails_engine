@@ -4,7 +4,7 @@ module Api
       respond_to :json
 
       def show
-        respond_with Item.limit(1).order("RANDOM()") #could also try .first, not limit
+        respond_with InvoiceItem.limit(1).order("RANDOM()")
       end
 
     end

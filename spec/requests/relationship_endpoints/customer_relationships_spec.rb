@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "Customers Spec", :type => :request do
+RSpec.describe "Customer Relationships Spec", :type => :request do
   include SpecHelpers
 
   it "returns all associated invoices" do
