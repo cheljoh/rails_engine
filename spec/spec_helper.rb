@@ -62,7 +62,7 @@ module SpecHelpers
   def make_transactions
     customer1 = Customer.create(first_name: "Hello", last_name: "Julia")
     merchant1 = Merchant.create(name: "Cool Things")
-    invoice1 = Invoice.create(customer_id: customer1.id, merchant_id: merchant1.id, status: "shipped")
+    invoice1 = Invoice.create(customer_id: customer1.id, merchant_id: merchant1.id, status: "shipped", created_at: "Wed, 13 Apr 2016 16:50:50 UTC +00:00")
     Transaction.create(invoice_id: invoice1.id, credit_card_number: "4654405418249631", result: "success")
     item = Item.create(name: "tool", description: "really neat", unit_price: 123.45, merchant_id: merchant1.id)
     InvoiceItem.create(item_id: item.id, invoice_id: invoice1.id, quantity: 1, unit_price: 123.45)

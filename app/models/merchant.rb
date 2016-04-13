@@ -4,9 +4,14 @@ class Merchant < ActiveRecord::Base
   has_many :transactions, through: :invoices
   has_many :customers, through: :invoices
 
-  def get_revenue
+  def get_revenue(date = nil)
     invoices = successful_invoices
-    invoices.sum("unit_price * quantity").to_f
+    if date
+      on_date = invoices.where("invoices.created_at = ?", date)
+      on_date.sum("unit_price * quantity").to_f
+    else
+      invoices.sum("unit_price * quantity").to_f
+    end
   end
 
   def successful_invoices

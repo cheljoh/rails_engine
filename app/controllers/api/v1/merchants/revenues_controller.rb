@@ -4,16 +4,20 @@ module Api
       class RevenuesController < ApiController
         respond_to :json
 
-        def show 
+        def show
           merchant = Merchant.find(merchant_params[:merchant_id])
-          invoice_sum = {revenue: merchant.get_revenue.to_s}
+          if merchant_params.has_key?(:date)
+            invoice_sum = {revenue: merchant.get_revenue(merchant_params[:date].to_datetime).to_s}
+          else
+            invoice_sum = {revenue: merchant.get_revenue.to_s}
+          end
           respond_with invoice_sum
         end
 
         private
 
         def merchant_params
-          params.permit(:merchant_id)
+          params.permit(:merchant_id, :date)
         end
       end
     end
