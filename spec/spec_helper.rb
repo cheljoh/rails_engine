@@ -76,6 +76,23 @@ module SpecHelpers
 
     Transaction.create(invoice_id: invoice1.id, credit_card_number: "4654405418249635", result: "success")
   end
+
+  def make_transactions_intell
+    customer1 = Customer.create(first_name: "Hello", last_name: "Julia")
+    merchant1 = Merchant.create(name: "Cool Things")
+    invoice1 = Invoice.create(customer_id: customer1.id, merchant_id: merchant1.id, status: "shipped", created_at: "Wed, 13 Apr 2016 16:50:50 UTC +00:00")
+    Transaction.create(invoice_id: invoice1.id, credit_card_number: "4654405418249631", result: "success")
+    item = Item.create(name: "tool", description: "really neat", unit_price: 123.45, merchant_id: merchant1.id)
+    InvoiceItem.create(item_id: item.id, invoice_id: invoice1.id, quantity: 1, unit_price: 123.45)
+
+    customer2 = Customer.create(first_name: "Uh oh", last_name: "Julia")
+    invoice2 = Invoice.create(customer_id: customer2.id, merchant_id: merchant1.id, status: "shipped")
+    Transaction.create(invoice_id: invoice2.id, credit_card_number: "4654405418249632", result: "success")
+
+    Transaction.create(invoice_id: invoice1.id, credit_card_number: "4654405418249635", result: "success")
+
+    Transaction.create(invoice_id: invoice1.id, credit_card_number: "4654405418249635", result: "success")
+  end
 end
 
 RSpec.configure do |config|
