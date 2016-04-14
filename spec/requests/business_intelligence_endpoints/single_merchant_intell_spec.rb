@@ -4,7 +4,7 @@ require "rails_helper"
 RSpec.describe "Single Merchant Intell Spec", :type => :request do
   include SpecHelpers #need to have better spec helper for this
 
-  it "returns revenue for a merchants across all transactions" do
+  it "returns revenue for a merchant across all transactions" do
     make_transactions
 
     merchant = Merchant.first
@@ -59,7 +59,7 @@ RSpec.describe "Single Merchant Intell Spec", :type => :request do
 
     merchant = Merchant.first
 
-    customer = Customer.first 
+    customer = Customer.first
 
     get "/api/v1/merchants/#{merchant.id}/customers_with_pending_invoices"
 

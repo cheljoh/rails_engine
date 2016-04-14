@@ -70,6 +70,7 @@ module SpecHelpers
     customer2 = Customer.create(first_name: "Uh oh", last_name: "Julia")
     merchant2 = Merchant.create(name: "Cool Things")
     invoice2 = Invoice.create(customer_id: customer2.id, merchant_id: merchant2.id, status: "shipped")
+    InvoiceItem.create(item_id: item.id, invoice_id: invoice2.id, quantity: 1, unit_price: 123.45)
     Transaction.create(invoice_id: invoice2.id, credit_card_number: "4654405418249632", result: "success")
 
     Transaction.create(invoice_id: invoice1.id, credit_card_number: "4654405418249635", result: "success")

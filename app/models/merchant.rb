@@ -2,19 +2,27 @@ class Merchant < ActiveRecord::Base
   has_many :invoices
   has_many :items
   has_many :transactions, through: :invoices
+  has_many :invoice_items, through: :invoices
   has_many :customers, through: :invoices
 
   def get_revenue(date = nil)
-    invoices = successful_invoices
     if date
-      on_date = invoices.where("invoices.created_at = ?", date)
+      on_date = successful_invoice_items.where("invoices.created_at = ?", date)
       on_date.sum("unit_price * quantity").to_f
     else
-      invoices.sum("unit_price * quantity").to_f
+      successful_invoice_items.sum("unit_price * quantity").to_f
     end
   end
 
-  def successful_invoices
+  def self.merchants_ranked_by_most_revenue(quantity)
+    Merchant.select("id", "name", "sum(invoice_items.unit_price * invoice_items.quantity) as revenue").joins(:invoices => [:transactions, :invoice_items]).where("result = 'success'").group("id").reorder("revenue desc").take(quantity)
+  end
+
+  def self.merchants_ranked_by_most_items_sold(quantity)
+
+  end
+
+  def successful_invoice_items
     invoices.joins(:transactions, :invoice_items).where("result = 'success'")
   end
 
