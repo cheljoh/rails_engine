@@ -6,7 +6,7 @@
 
 `bundle`
 
-`rake db:{drop,create,migrate}`
+`rake db:reset`
 
 Import data from CSV into database by running: `rake import:data`. This may take a while!
 
