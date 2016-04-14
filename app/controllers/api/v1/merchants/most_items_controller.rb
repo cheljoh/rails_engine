@@ -4,8 +4,9 @@ module Api
       class MostItemsController < ApiController
         respond_to :json
 
-        def index #format revenue
-          respond_with Merchant.merchants_ranked_by_most_items_sold(params[:quantity])
+        def index
+          respond_with Merchant.merchants_ranked_by_most_items_sold(params[:quantity])#,
+            #serializer: :MerchantMostItemsSerializer
         end
       end
     end
