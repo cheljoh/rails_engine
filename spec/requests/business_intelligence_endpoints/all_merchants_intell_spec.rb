@@ -37,12 +37,20 @@ RSpec.describe "All Merchants Intell Spec", :type => :request do
     expect(merchants.first['id']).to eq(merchant.id)
     expect(merchants.count).to eq(2)
   end
+
+  it "returns total revenue for all merchants by date" do
+    make_transactions
+
+    merchant = Merchant.first
+
+    get "/api/v1/merchants/revenue?date=Wed, 13 Apr 2016 16:50:50 UTC +00:00"
+
+    expect(response.content_type).to eq("application/json")
+
+    revenue = JSON.parse(response.body)
+
+    expect(response.content_type).to eq("application/json")
+    expect(response).to be_success
+    expect(revenue).to eq({"total_revenue"=>"370.35"})
+  end
 end
-
-
-
-
-
-# GET /api/v1/merchants/most_revenue?quantity=x returns the top x merchants ranked by total revenue
-# GET /api/v1/merchants/most_items?quantity=x returns the top x merchants ranked by total number of items sold
-# GET /api/v1/merchants/revenue?date=x returns the total revenue for date x across all merchants
