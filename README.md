@@ -2,11 +2,13 @@
 ### Setup
 `git clone https://github.com/cheljoh/rails_engine.git`
 
+`cd rails_engine`
+
 `bundle`
 
 `rake db:{drop,create,migrate}`
 
-Import data from CSV into database by running: `rake import:data`
+Import data from CSV into database by running: `rake import:data`. This may take a while!
 
 Run `rspec` to make sure all tests are passing
 
