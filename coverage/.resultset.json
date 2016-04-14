@@ -168,7 +168,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "/Users/chelseajohnson/Documents/turing/3module/rails_engine/app/controllers/api/v1/merchants/total_revenue_on_date_controller.rb": [
@@ -713,17 +712,8 @@
         null,
         null,
         null
-      ],
-      "/Users/chelseajohnson/Documents/turing/3module/rails_engine/app/serializers/merchant_most_items_serializer.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
       ]
     },
-    "timestamp": 1460612116
+    "timestamp": 1460644931
   }
 }

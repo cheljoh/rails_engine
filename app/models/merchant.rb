@@ -37,7 +37,7 @@ class Merchant < ActiveRecord::Base
             joins(:invoices => [:transactions, :invoice_items]).
             where("result = 'success'").
             group("id").
-            reorder("revenue desc").
+            order("revenue desc").
             take(quantity)
   end
 
