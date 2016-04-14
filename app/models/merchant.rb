@@ -52,13 +52,9 @@ class Merchant < ActiveRecord::Base
       number_of_orders
     end
     Customer.find(customer_id[0])
-    #Merchant.joins(:invoices).group(:customer_id).order('count_id DESC').limit(5).count(:id)
-    #self.invoices.count(:customer_id)
-    #Merchant.joins(:invoices).count(:customer_id)
-    #Merchant.joins(:invoices).group(:customer_id).order('customer_id DESC').limit(1).count(:customer_id)
   end
 
-  def customers_with_successful_transactions
+  def customers_with_successful_transactions # at least refactor this
     successful_customers = []
     customers.each do |customer|
       customer.invoices.each do |invoice|
