@@ -2,7 +2,7 @@
 require "rails_helper"
 
 RSpec.describe "Single Merchant Intell Spec", :type => :request do
-  include SpecHelpers #need to have better spec helper for this
+  include SpecHelpers
 
   it "returns revenue for a merchant across all transactions" do
     make_transactions

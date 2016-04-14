@@ -2,7 +2,7 @@
 require "rails_helper"
 
 RSpec.describe "All Merchants Intell Spec", :type => :request do
-  include SpecHelpers 
+  include SpecHelpers
 
   it "returns top merchants ranked by total revenue" do
     make_transactions
@@ -18,10 +18,10 @@ RSpec.describe "All Merchants Intell Spec", :type => :request do
     expect(response.content_type).to eq("application/json")
     expect(response).to be_success
     expect(merchants.first['id']).to eq(merchant.id)
+    expect(merchants.count).to eq(2)
   end
 
   it "returns top merchants ranked by total items sold" do
-    pending
     make_transactions
 
     merchant = Merchant.first
@@ -34,7 +34,8 @@ RSpec.describe "All Merchants Intell Spec", :type => :request do
 
     expect(response.content_type).to eq("application/json")
     expect(response).to be_success
-    expect(merchants.first).to eq(merchant)
+    expect(merchants.first['id']).to eq(merchant.id)
+    expect(merchants.count).to eq(2)
   end
 end
 

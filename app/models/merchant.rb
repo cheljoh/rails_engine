@@ -19,7 +19,7 @@ class Merchant < ActiveRecord::Base
   end
 
   def self.merchants_ranked_by_most_items_sold(quantity)
-
+    Merchant.select("id", "name", "sum(invoice_items.quantity) as revenue").joins(:invoices => [:transactions, :invoice_items]).where("result = 'success'").group("id").reorder("revenue desc").take(quantity)
   end
 
   def successful_invoice_items

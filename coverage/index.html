@@ -14,7 +14,7 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2016-04-13T19:36:55-06:00">2016-04-13T19:36:55-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2016-04-13T19:47:10-06:00">2016-04-13T19:47:10-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -32,8 +32,8 @@
   <a name="AllFiles"></a>
   <div>
     <b>36</b> files in total.
-    <b>328</b> relevant lines. 
-    <span class="green"><b>328</b> lines covered</span> and
+    <b>329</b> relevant lines. 
+    <span class="green"><b>329</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -394,8 +394,8 @@
         <td class="strong"><a href="#c8c6f51a1140758a3ef0df6cb46e29438f75b64b" class="src_link" title="app/models/merchant.rb">app/models/merchant.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>67</td>
-        <td>37</td>
-        <td>37</td>
+        <td>38</td>
+        <td>38</td>
         <td>0</td>
         <td>1.1</td>
       </tr>
@@ -750,15 +750,15 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.06
+         1.07
        </span>
     </span> hits/line)
   </h2>
   <a name="Models"></a>
   <div>
     <b>6</b> files in total.
-    <b>57</b> relevant lines. 
-    <span class="green"><b>57</b> lines covered</span> and
+    <b>58</b> relevant lines. 
+    <span class="green"><b>58</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -819,8 +819,8 @@
         <td class="strong"><a href="#c8c6f51a1140758a3ef0df6cb46e29438f75b64b" class="src_link" title="app/models/merchant.rb">app/models/merchant.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>67</td>
-        <td>37</td>
-        <td>37</td>
+        <td>38</td>
+        <td>38</td>
         <td>0</td>
         <td>1.1</td>
       </tr>
@@ -4847,8 +4847,8 @@
     <h3>app/models/merchant.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>37</b> relevant lines. 
-      <span class="green"><b>37</b> lines covered</span> and
+      <b>38</b> relevant lines. 
+      <span class="green"><b>38</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -4982,10 +4982,10 @@
           <code class="ruby">  def self.merchants_ranked_by_most_items_sold(quantity)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="22">
+        <li class="covered" data-hits="1" data-linenumber="22">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">    Merchant.select(&quot;id&quot;, &quot;name&quot;, &quot;sum(invoice_items.quantity) as revenue&quot;).joins(:invoices =&gt; [:transactions, :invoice_items]).where(&quot;result = &#39;success&#39;&quot;).group(&quot;id&quot;).reorder(&quot;revenue desc&quot;).take(quantity)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="23">
