@@ -6,7 +6,6 @@ module Api
       def show
         respond_with Merchant.limit(1).order("RANDOM()")
       end
-
     end
   end
 end

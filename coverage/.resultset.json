@@ -152,8 +152,6 @@
       ],
       "/Users/chelseajohnson/Documents/turing/3module/rails_engine/app/controllers/application_controller.rb": [
         1,
-        null,
-        null,
         1,
         null
       ],
@@ -412,7 +410,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "/Users/chelseajohnson/Documents/turing/3module/rails_engine/app/controllers/api/v1/random_invoice_items_controller.rb": [
@@ -423,7 +420,6 @@
         null,
         1,
         1,
-        null,
         null,
         null,
         null,
@@ -440,7 +436,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "/Users/chelseajohnson/Documents/turing/3module/rails_engine/app/controllers/api/v1/random_items_controller.rb": [
@@ -451,7 +446,6 @@
         null,
         1,
         1,
-        null,
         null,
         null,
         null,
@@ -468,7 +462,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "/Users/chelseajohnson/Documents/turing/3module/rails_engine/app/controllers/api/v1/random_transactions_controller.rb": [
@@ -479,7 +472,6 @@
         null,
         1,
         1,
-        null,
         null,
         null,
         null,
@@ -732,6 +724,6 @@
         0
       ]
     },
-    "timestamp": 1460609720
+    "timestamp": 1460612116
   }
 }

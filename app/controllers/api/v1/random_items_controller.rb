@@ -6,7 +6,6 @@ module Api
       def show
         respond_with Item.limit(1).order("RANDOM()")
       end
-
     end
   end
 end
